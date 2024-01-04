@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 	"log"
-	helpers "mongoDB/Helpers"
+	
 	"os"
 
 	"github.com/joho/godotenv"
@@ -80,5 +80,5 @@ if err3 != nil {
 
 
 
-helpers.Wg.Done()
+
 }

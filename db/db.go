@@ -4,9 +4,10 @@ import (
 	"context"
 	"fmt"
 	"log"
-	helpers "mongoDB/Helpers"
+
 	"os"
 
+	"github.com/joho/godotenv"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -16,6 +17,7 @@ var Users *mongo.Collection
 var Client *mongo.Client
 
 func DBconnection() {
+	godotenv.Load()
 	dbConnection := options.Client().ApplyURI(os.Getenv("connectionString"))
 	actualConnection, err := mongo.Connect(context.TODO(), dbConnection)
 
@@ -56,5 +58,5 @@ func DBconnection() {
 
 	//close the wait grp
 
-	helpers.Wg.Done()
+
 }
