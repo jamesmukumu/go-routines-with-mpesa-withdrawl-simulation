@@ -2,8 +2,7 @@ package usersmiddleware
 
 import (
 	"context"
-
-	helpers "mongoDB/Helpers"
+   
 	"mongoDB/db"
 	"mongoDB/db/dbagents"
 	"mongoDB/models/agents"
@@ -65,8 +64,7 @@ func ValidationPrewithdrawl(next http.HandlerFunc) http.HandlerFunc {
 		//generateToken 
 		token := Createtoken(AccountDb.Phonenumber)
 		res.Header().Add("Authorization",token)
-       helpers.TokenChannel <- token
-		
+     
 
 		//validate Agentnumber and store Number
 
